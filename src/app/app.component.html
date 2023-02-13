@@ -1,1 +1,9 @@
-<h1>{{title}}</h1>
+<h1 class="">{{title}}</h1>
+
+<ul>
+    <div *ngFor="let user of users">
+        <ui>
+            {{user.id}} - {{user.userName}}
+        </ui>
+    </div>
+</ul>
