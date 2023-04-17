@@ -1,9 +1,10 @@
-<h1 class="">{{title}}</h1>
-
-<ul>
+<app-nav></app-nav>
+<div class="container" style="padding-top: 50px">
+  <!-- <h3>{{ title }}</h3> -->
+  <router-outlet></router-outlet>
+  <!-- <ul>
     <div *ngFor="let user of users">
-        <ui>
-            {{user.id}} - {{user.userName}}
-        </ui>
+      <ui> {{ user.id }} - {{ user.userName }} </ui>
     </div>
-</ul>
+  </ul> -->
+</div>
