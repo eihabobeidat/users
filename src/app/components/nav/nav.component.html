@@ -25,26 +25,26 @@
           >Messages</a
         >
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" (click)="logout()">Logout</a>
-      </li>
+      </li> -->
     </ul>
 
-    <!-- <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-      <a href="" class="dropdown-toggle text-light" dropdownToggle
-        >Welcome user</a
+    <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
+      <a class="dropdown-toggle bold text-light" dropdownToggle>
+        {{ (accountService.currentUser$ | async).username }}</a
       >
       <div class="dropdown-menu" *bsDropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
         <a class="dropdown-item" (click)="logout()">Logout</a>
       </div>
-    </div> -->
+    </div>
 
-    <div class="dropdown" *ngIf="accountService.currentUser$ | async">
+    <!-- <div class="dropdown" *ngIf="accountService.currentUser$ | async">
       <h4 class="bold text-secondary">
         {{ (accountService.currentUser$ | async).username }}
       </h4>
-    </div>
+    </div> -->
 
     <form
       #loginForm="ngForm"
