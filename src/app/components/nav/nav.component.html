@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <div class="container">
     <a class="navbar-brand" routerLink="/">Users Application</a>
 
@@ -30,10 +30,18 @@
       </li> -->
     </ul>
 
-    <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-      <a class="dropdown-toggle bold text-light" dropdownToggle>
-        {{ (accountService.currentUser$ | async).username }}</a
+    <div
+      class="dropdown"
+      *ngIf="accountService.currentUser$ | async as user"
+      dropdown
+    >
+      <a
+        class="dropdown-toggle bold text-light text-decoration-none"
+        dropdownToggle
       >
+        <!-- {{ (accountService.currentUser$ | async).username }} -->
+        Welcome {{ user.username | titlecase }}
+      </a>
       <div class="dropdown-menu" *bsDropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
         <a class="dropdown-item" (click)="logout()">Logout</a>
@@ -68,7 +76,7 @@
         type="password"
         placeholder="Password"
       />
-      <button class="btn btn-outline-success" type="submit">Login</button>
+      <button class="btn bg-success text-light" type="submit">Login</button>
     </form>
   </div>
 </nav>

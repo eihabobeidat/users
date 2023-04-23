@@ -1,4 +1,4 @@
-interface Toaster {
+export interface Toaster {
   title: string;
   message: string;
   timeOut: number;
