@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.accountService.register(this.model).subscribe({
-      error: ({ error }) => this.toaster.showError({ message: error }),
+      error: (error) => this.toaster.showError({ message: error }),
     });
   }
 

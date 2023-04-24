@@ -41,13 +41,12 @@ export class ConfigInterceptor implements HttpInterceptor {
               break;
 
             case 400:
-              debugger;
               if (error.error.errors) {
                 const modelStateErrors = [];
                 for (const key in error.error.errors) {
                   modelStateErrors.push(error.error.errors[key]);
                 }
-                throw modelStateErrors;
+                throw modelStateErrors.flat();
               } else {
                 this.toaster.showError({
                   message: error.error,

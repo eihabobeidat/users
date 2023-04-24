@@ -16,6 +16,8 @@ import { IntroductionComponent } from './components/introduction/introduction.co
 import { SharedModule } from './_modules/shared.module';
 import { ErrorComponent } from './components/error/error.component';
 import { ConfigInterceptor } from './_interceptor/config.interceptor';
+import { NotFoundComponent } from './components/error/not-found/not-found.component';
+import { ServerErrorComponent } from './components/error/server-error/server-error.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,8 @@ import { ConfigInterceptor } from './_interceptor/config.interceptor';
     MemberDetailComponent,
     IntroductionComponent,
     ErrorComponent,
+    NotFoundComponent,
+    ServerErrorComponent,
   ],
   imports: [
     BrowserModule,
