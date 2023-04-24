@@ -2,7 +2,7 @@ export interface Toaster {
   title: string;
   message: string;
   timeOut: number;
-  position:
+  positionClass:
     | 'toast-top-left'
     | 'toast-top-center'
     | 'toast-top-right'
