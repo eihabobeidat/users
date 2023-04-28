@@ -9,7 +9,7 @@ export class ToasterService {
   default: Toaster = {
     message: undefined,
     positionClass: 'toast-bottom-right',
-    timeOut: undefined,
+    timeOut: 3000,
     title: undefined,
   };
   constructor(private toastr: ToastrService) {}

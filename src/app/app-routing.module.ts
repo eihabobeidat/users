@@ -10,11 +10,14 @@ import { IntroductionComponent } from './components/introduction/introduction.co
 import { ErrorComponent } from './components/error/error.component';
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
 import { ServerErrorComponent } from './components/error/server-error/server-error.component';
+import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canMatch: [AuthenticationGuard],
     // canDeactivate: [AuthenticationGuard]
   },
   {
@@ -22,9 +25,14 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthenticationGuard],
     children: [
-      // { path: '', component: IntroductionComponent }, //Not working when first deactivated, conditinal rendering will be implemented.
+      { path: '', component: IntroductionComponent }, //Not working when first deactivated, conditinal rendering will be implemented.
       { path: 'members', component: MemberListComponent },
-      { path: 'members/:id', component: MemberDetailComponent },
+      { path: 'member/:id', component: MemberDetailComponent },
+      {
+        path: 'members/edit',
+        component: MemberEditComponent,
+        canDeactivate: [PreventUnsavedChangesGuard],
+      },
       { path: 'lists', component: ListsComponent },
       { path: 'messages', component: MessagesComponent },
     ],

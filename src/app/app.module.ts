@@ -18,6 +18,10 @@ import { ErrorComponent } from './components/error/error.component';
 import { ConfigInterceptor } from './_interceptor/config.interceptor';
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
 import { ServerErrorComponent } from './components/error/server-error/server-error.component';
+import { MemberCardComponent } from './components/members/member-card/member-card.component';
+import { RequestConfigInterceptor } from './_interceptor/request-config.interceptor';
+import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
+import { LoadingInterceptor } from './_interceptor/loading.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,8 @@ import { ServerErrorComponent } from './components/error/server-error/server-err
     ErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
+    MemberCardComponent,
+    MemberEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +50,18 @@ import { ServerErrorComponent } from './components/error/server-error/server-err
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: ConfigInterceptor,
+      useClass: ConfigInterceptor, //for Response (sorry for the naming convention)
       multi: true, //multi here is to till angular to use not only our intercepter, since there is an intercepters from provided from angular it self.
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestConfigInterceptor, //for Request
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor, //for Request
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

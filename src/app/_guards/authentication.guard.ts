@@ -16,4 +16,8 @@ export class AuthenticationGuard implements CanActivate {
   canDeactivate(): Observable<boolean> {
     return this.accountService.currentUser$.pipe(map((user) => !!user));
   }
+
+  canMatch(): Observable<boolean> {
+    return this.accountService.currentUser$.pipe(map((user) => !user));
+  }
 }

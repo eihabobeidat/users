@@ -1,10 +1,12 @@
 <app-nav></app-nav>
-<div class="container" style="padding-top: 50px">
-  <!-- <h3>{{ title }}</h3> -->
+
+<div class="container" style="margin-top: 100px">
   <router-outlet></router-outlet>
-  <!-- <ul>
-    <div *ngFor="let user of users">
-      <ui> {{ user.id }} - {{ user.userName }} </ui>
-    </div>
-  </ul> -->
 </div>
+
+<ngx-spinner>
+  <h3 style="margin-top: 120px; color: #d6600c; font-weight: bolder">
+    Loading...
+  </h3>
+</ngx-spinner>
+<ngx-spinner name="secondary"></ngx-spinner>
