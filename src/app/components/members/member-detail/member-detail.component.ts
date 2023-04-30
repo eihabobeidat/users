@@ -47,7 +47,6 @@ export class MemberDetailComponent implements OnInit {
           medium: photo?.url,
           big: photo?.url,
         }));
-        console.log(this.galleryImages);
       });
     }
   }
