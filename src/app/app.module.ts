@@ -4,7 +4,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -24,6 +24,8 @@ import { MemberEditComponent } from './components/members/member-edit/member-edi
 import { LoadingInterceptor } from './_interceptor/loading.interceptor';
 import { MemberPhotoEditorComponent } from './components/members/member-photo-editor/member-photo-editor.component';
 import { FilePickerComponent } from './components/shared/file-picker/file-picker.component';
+import { TextInputComponent } from './components/shared/text-input/text-input.component';
+import { DatePickerComponent } from './components/shared/date-picker/date-picker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,12 +44,15 @@ import { FilePickerComponent } from './components/shared/file-picker/file-picker
     MemberEditComponent,
     MemberPhotoEditorComponent,
     FilePickerComponent,
+    TextInputComponent,
+    DatePickerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
   ],

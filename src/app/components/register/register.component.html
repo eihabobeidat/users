@@ -1,28 +1,99 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+<!-- <form 
+#registerForm="ngForm"    ===> for FormsModule we don't need a template refrence variable, 
+(ngSubmit)="register()"        for reactive form we just pass our variable to the form as shown below.
+autocomplete="off"
+> -->
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
   <h2 class="text-center text-primary">Sign up</h2>
   <hr />
-  <div class="mb-3">
-    <input
+  <!-- <input
       type="text"
       class="form-control"
-      name="username"
-      [(ngModel)]="model.username"
+      name="username"                      ===> same here with reactive forms all we need is only to pass 
+      [(ngModel)]="model.username"              each of our inputs the proparity name assotiated with it.
+      placeholder="Username"
+    /> -->
+
+  <!-- <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"               ====> before using the input shared, but with reactive forms
+      formControlName="username"
       placeholder="Username"
     />
+  </div> -->
+
+  <!-- if this errored out for the type, [formControl]="registerForm.controls['username']"
+       we can cast for any type simply by using [formControl]="$any(varName)"
+  -->
+  <div class="mb-3">
+    <label style="margin-right: 10px">I am a: </label>
+    <label class="form-check-label p-2">
+      <input
+        type="radio"
+        value="male"
+        class="form-check-input p-1"
+        formControlName="gender"
+      />
+      Male
+    </label>
+    <label class="form-check-label p-2">
+      <input
+        type="radio"
+        value="female"
+        class="form-check-input p-1"
+        formControlName="gender"
+      />
+      Female
+    </label>
   </div>
 
-  <div class="mb-3">
-    <input
-      type="password"
-      class="form-control"
-      name="password"
-      [(ngModel)]="model.password"
-      placeholder="Password"
-    />
-  </div>
+  <app-text-input
+    [label]="'Username'"
+    [formControl]="registerForm.controls['username']"
+  ></app-text-input>
+
+  <app-text-input
+    [label]="'password'"
+    [type]="'password'"
+    [formControl]="registerForm.controls['password']"
+  ></app-text-input>
+
+  <app-text-input
+    [label]="'Confirm Password'"
+    [type]="'password'"
+    [formControl]="registerForm.controls['confirmPassword']"
+  ></app-text-input>
+
+  <app-text-input
+    [label]="'known As'"
+    [formControl]="registerForm.controls['knownAs']"
+  ></app-text-input>
+
+  <app-date-picker
+    [label]="'Date Of Birth'"
+    [maxDate]="maxDate"
+    [formControl]="registerForm.controls['birthOfDate']"
+  ></app-date-picker>
+
+  <app-text-input
+    [label]="'City'"
+    [formControl]="registerForm.controls['city']"
+  ></app-text-input>
+
+  <app-text-input
+    [label]="'Country'"
+    [formControl]="registerForm.controls['country']"
+  ></app-text-input>
 
   <div class="text-center">
-    <button class="btn btn-success me-2" type="submit">Register</button>
+    <button
+      class="btn btn-success me-2"
+      type="submit"
+      [disabled]="registerForm.status === 'INVALID'"
+    >
+      Register
+    </button>
     <button
       class="btn btn-default border border-1"
       type="button"

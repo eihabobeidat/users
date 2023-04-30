@@ -58,7 +58,14 @@ export class MemberEditComponent implements OnInit {
         this.member.photoUrl = this.member.photos[alteredIndex].url;
       }
       this.member.photos[alteredIndex] = { ...$event };
-    } else this.member.photos.push($event);
+    } else {
+      if (!this.member.photos.length && $event.isMain) {
+        this.user.photoUrl = $event.url;
+        this.member.photoUrl = $event.url;
+        this.accountService.setCurrentUser(this.user);
+      }
+      this.member.photos.push($event);
+    }
   }
 
   deletePhoto($event) {
