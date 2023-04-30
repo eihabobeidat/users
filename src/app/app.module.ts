@@ -22,6 +22,8 @@ import { MemberCardComponent } from './components/members/member-card/member-car
 import { RequestConfigInterceptor } from './_interceptor/request-config.interceptor';
 import { MemberEditComponent } from './components/members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptor/loading.interceptor';
+import { MemberPhotoEditorComponent } from './components/members/member-photo-editor/member-photo-editor.component';
+import { FilePickerComponent } from './components/shared/file-picker/file-picker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,8 @@ import { LoadingInterceptor } from './_interceptor/loading.interceptor';
     ServerErrorComponent,
     MemberCardComponent,
     MemberEditComponent,
+    MemberPhotoEditorComponent,
+    FilePickerComponent,
   ],
   imports: [
     BrowserModule,

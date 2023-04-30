@@ -50,4 +50,21 @@ export class MemberEditComponent implements OnInit {
       this.editForm.reset(this.member);
     });
   }
+
+  addPhoto($event) {
+    let alteredIndex = this.member.photos.findIndex((x) => x.id === $event.id);
+    if (alteredIndex >= 0) {
+      if ($event.isMain) {
+        this.member.photoUrl = this.member.photos[alteredIndex].url;
+      }
+      this.member.photos[alteredIndex] = { ...$event };
+    } else this.member.photos.push($event);
+  }
+
+  deletePhoto($event) {
+    let deletedIndex = this.member.photos.findIndex((x) => x.id === $event.id);
+    if (deletedIndex >= 0) {
+      this.member.photos.splice(deletedIndex, 1);
+    }
+  }
 }

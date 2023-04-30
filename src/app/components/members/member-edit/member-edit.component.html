@@ -94,7 +94,12 @@
         </tab>
 
         <tab heading="Edit Photos">
-          <p>Photo edit will be here</p>
+          <app-member-photo-editor
+            (fileHandler)="addPhoto($event)"
+            (deleteHandler)="deletePhoto($event)"
+            [member]="member"
+          ></app-member-photo-editor>
+          <app-file-picker (fileHandler)="addPhoto($event)"></app-file-picker>
         </tab>
       </tabset>
     </div>
