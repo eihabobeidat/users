@@ -44,7 +44,7 @@
         dropdownToggle
       >
         <!-- {{ (accountService.currentUser$ | async).username }} -->
-        Welcome {{ user.username | titlecase }}
+        Welcome {{ user.knownAs | titlecase }}
       </a>
       <div class="dropdown-menu" *bsDropdownMenu>
         <a class="dropdown-item" routerLink="members/edit">Edit Profile</a>

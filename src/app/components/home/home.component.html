@@ -15,10 +15,7 @@
   <div class="container" *ngIf="registerMode">
     <div class="row justify-content-center">
       <div class="col-4 text-center">
-        <app-register
-          [usersFromHomeComponent]="users"
-          (cancelRegister)="registerToggle()"
-        ></app-register>
+        <app-register (cancelRegister)="registerToggle()"></app-register>
         <!-- (cancelRegister)="registerToggle()" if there is a parameter just use $ followed by parameter name as, 
         (cancelRegister)="registerToggle($event)" -->
       </div>

@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   maxDate: Date = new Date(
     new Date().setFullYear(new Date().getFullYear() - 18)
   );
-  @Input() usersFromHomeComponent: any;
+  // @Input() usersFromHomeComponent: any;
   @Output() cancelRegister = new EventEmitter();
 
   constructor(
