@@ -104,6 +104,25 @@ export class MembersService {
     );
   }
 
+  addLike(username: string) {
+    return this.http.post(environment.apiUrl + 'Likes/' + username, {});
+  }
+
+  getLikes(
+    predicate: 'liked' | 'likedBy',
+    pageNumber: number,
+    pageSize: number
+  ) {
+    let params = new HttpParams(); //OrderBy
+    params = params.append('pageNumber', pageNumber);
+    params = params.append('pageSize', pageSize);
+    params = params.append('predicate', predicate);
+    return this.http.get<Member[]>(environment.apiUrl + 'Likes', {
+      params,
+      observe: 'response',
+    });
+  }
+
   private _canUseCachedData(requestedPage, pageSize): boolean {
     return false; //testing, function needs improvments regarding filter used
 

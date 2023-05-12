@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Member } from 'src/app/_models/member';
+import { ToasterService } from 'src/app/_services/helpers/toaster.service';
+import { MembersService } from 'src/app/_services/members/members.service';
 
 @Component({
   selector: 'app-member-card',
@@ -8,4 +10,18 @@ import { Member } from 'src/app/_models/member';
 })
 export class MemberCardComponent {
   @Input() member: Member;
+
+  constructor(
+    private memberService: MembersService,
+    private toastr: ToasterService
+  ) {}
+
+  addLike() {
+    this.memberService.addLike(this.member.userName).subscribe(() => {
+      this.toastr.showSuccess({
+        title: `You Liked ${this.member.knownAs}`,
+        message: '',
+      });
+    });
+  }
 }
