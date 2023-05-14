@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ListsComponent } from './components/lists/lists.component';
-import { MessagesComponent } from './components/messages/messages.component';
+import { MessagesComponent } from './components/messages/message-list/messages.component';
 import { MemberListComponent } from './components/members/member-list/member-list.component';
 import { MemberDetailComponent } from './components/members/member-detail/member-detail.component';
 import { IntroductionComponent } from './components/introduction/introduction.component';
@@ -26,6 +26,7 @@ import { MemberPhotoEditorComponent } from './components/members/member-photo-ed
 import { FilePickerComponent } from './components/shared/file-picker/file-picker.component';
 import { TextInputComponent } from './components/shared/text-input/text-input.component';
 import { DatePickerComponent } from './components/shared/date-picker/date-picker.component';
+import { MessageViewComponent } from './components/messages/message-view/message-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { DatePickerComponent } from './components/shared/date-picker/date-picker
     FilePickerComponent,
     TextInputComponent,
     DatePickerComponent,
+    MessageViewComponent,
   ],
   imports: [
     BrowserModule,
