@@ -27,6 +27,11 @@ import { FilePickerComponent } from './components/shared/file-picker/file-picker
 import { TextInputComponent } from './components/shared/text-input/text-input.component';
 import { DatePickerComponent } from './components/shared/date-picker/date-picker.component';
 import { MessageViewComponent } from './components/messages/message-view/message-view.component';
+import { AdminPanelComponent } from './components/admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/has-role.directive';
+import { UserManagementComponent } from './components/admin/user-management/user-management.component';
+import { PhotoManagementComponent } from './components/admin/photo-management/photo-management.component';
+import { ModalBoxComponent } from './components/shared/modal-box/modal-box.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +53,11 @@ import { MessageViewComponent } from './components/messages/message-view/message
     TextInputComponent,
     DatePickerComponent,
     MessageViewComponent,
+    AdminPanelComponent,
+    HasRoleDirective,
+    UserManagementComponent,
+    PhotoManagementComponent,
+    ModalBoxComponent,
   ],
   imports: [
     BrowserModule,
