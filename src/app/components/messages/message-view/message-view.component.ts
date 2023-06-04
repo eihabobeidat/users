@@ -10,12 +10,11 @@ import { MessageService } from 'src/app/_services/messages/message.service';
 })
 export class MessageViewComponent implements OnInit {
   @Input() username: string;
-  @Input() messages: Message[];
   @ViewChild('messageForm') form: NgForm;
   messageContent: string;
   now: string = new Date().toDateString();
 
-  constructor(private messageService: MessageService) {}
+  constructor(public messageService: MessageService) {}
 
   ngOnInit(): void {}
 
@@ -23,11 +22,8 @@ export class MessageViewComponent implements OnInit {
     if (this.username)
       this.messageService
         .sendMessage(this.username, this.messageContent)
-        .subscribe({
-          next: (message) => {
-            this.messages.push(message);
-            this.form.reset();
-          },
+        .then(() => {
+          this.form.reset();
         });
   }
 }

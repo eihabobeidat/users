@@ -5,8 +5,6 @@ import { Member } from '../../_models/member';
 import { map, of, take } from 'rxjs';
 import { PaginatedResult } from 'src/app/_models/pagination';
 import { UserParams } from 'src/app/_models/userParams';
-import { AccountService } from '../authentication/account.service';
-import { User } from 'src/app/_models/user';
 
 @Injectable({
   providedIn: 'root',

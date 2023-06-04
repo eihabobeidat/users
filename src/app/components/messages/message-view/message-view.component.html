@@ -1,9 +1,14 @@
 <div class="card">
   <div class="card-body">
-    <div *ngIf="!messages?.length">No Messages yet . . .</div>
+    <div *ngIf="(messageService.messagesThread$ | async)?.length === 0">
+      No Messages yet . . .
+    </div>
 
-    <ul *ngIf="messages?.length > 0" class="chat">
-      <li *ngFor="let message of messages">
+    <ul
+      *ngIf="(messageService.messagesThread$ | async)?.length > 0"
+      class="chat"
+    >
+      <li *ngFor="let message of messageService.messagesThread$ | async">
         <div>
           <span class="chat-img float-end">
             <img
@@ -16,21 +21,23 @@
             <div class="header">
               <small class="text-muted">
                 <span class="fa fa-clock-o">{{
-                  message.messageSent + "Z" | timeago
+                  message.messageSent | timeago
                 }}</span>
                 <span
                   class="text-danger"
                   *ngIf="
                     !message.dateRead && message.senderUserName !== username
                   "
-                  >(unread)</span
+                >
+                  (unread)</span
                 >
                 <span
                   class="text-success"
                   *ngIf="
                     message.dateRead && message.senderUserName !== username
                   "
-                  >(read {{ message.dateRead + "Z" | timeago }})</span
+                >
+                  (read {{ message.dateRead | timeago }})</span
                 >
               </small>
             </div>

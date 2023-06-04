@@ -6,7 +6,17 @@
         alt="{{ member.knownAs }}"
         class="card-img-top img-thumbnail"
       />
+
       <div class="card-body">
+        <div
+          class="mb-2"
+          *ngIf="
+            (presenceService.onlineUsers$ | async)?.includes(member.userName)
+          "
+        >
+          <i class="class fa fa-user-circle text-success"></i>
+          <span class="text-success"> Online</span>
+        </div>
         <div>
           <strong>Location:</strong>
           <p>{{ member.city }}, {{ member.country }}</p>
@@ -61,10 +71,7 @@
         </tab>
 
         <tab heading="Messages" (selectTab)="onTabActivated($event)">
-          <app-message-view
-            [username]="member.userName"
-            [messages]="messages"
-          ></app-message-view>
+          <app-message-view [username]="member.userName"></app-message-view>
         </tab>
       </tabset>
     </div>

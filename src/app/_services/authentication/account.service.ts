@@ -3,6 +3,7 @@ import { Injectable, destroyPlatform } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 import { User } from 'src/app/_models/user';
 import { environment } from 'src/environments/environment';
+import { PresenceService } from '../signalr/presence.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,10 @@ export class AccountService {
   private currentUserSource = new BehaviorSubject<User>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private presenceService: PresenceService
+  ) {}
 
   register(model: any) {
     return this.http
@@ -43,6 +47,7 @@ export class AccountService {
     Array.isArray(roles) ? (user.roles = roles) : user.roles.push(roles);
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
+    this.presenceService.createHubConnection(user);
   }
 
   logout() {

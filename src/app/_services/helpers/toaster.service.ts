@@ -6,12 +6,13 @@ import { Toaster } from 'src/app/_models/helpersModels/toaster';
   providedIn: 'root',
 })
 export class ToasterService {
-  default: Toaster = {
+  private default: Toaster = {
     message: undefined,
     positionClass: 'toast-bottom-right',
     timeOut: 3000,
     title: undefined,
   };
+
   constructor(private toastr: ToastrService) {}
 
   showSuccess(
