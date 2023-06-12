@@ -31,7 +31,10 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-center" *ngIf="pagination && members">
+<div
+  class="d-flex justify-content-center"
+  *ngIf="pagination && members?.length"
+>
   <pagination
     [boundaryLinks]="true"
     [totalItems]="pagination.totalItems"

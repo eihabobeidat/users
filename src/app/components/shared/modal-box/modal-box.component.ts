@@ -9,19 +9,18 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class ModalBoxComponent {
   title: string = '';
   description: string = '';
-  username: string = '';
-  availableRoles: any[] = [];
-  selectedRoles: any[] = [];
-  closeButtonName: string = '';
+  cancelButtonName: string = '';
+  confirmButtonName: string = '';
+  action: any;
 
   constructor(public bsModalRef: BsModalRef) {}
 
-  updateChecked(checkedValue: string) {
-    const index = this.selectedRoles.indexOf(checkedValue);
-    if (index < 0) {
-      this.selectedRoles.push(checkedValue);
-    } else {
-      this.selectedRoles.splice(index, 1);
-    }
+  handleConfirm() {
+    this.action.isConfirmed = true;
+    this.handleCancel();
+  }
+
+  handleCancel() {
+    this.bsModalRef.hide();
   }
 }

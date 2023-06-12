@@ -32,6 +32,7 @@ import { HasRoleDirective } from './_directives/has-role.directive';
 import { UserManagementComponent } from './components/admin/user-management/user-management.component';
 import { PhotoManagementComponent } from './components/admin/photo-management/photo-management.component';
 import { ModalBoxComponent } from './components/shared/modal-box/modal-box.component';
+import { AdminModalBoxComponent } from './components/admin/admin-modal-box/admin-modal-box.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { ModalBoxComponent } from './components/shared/modal-box/modal-box.compo
     UserManagementComponent,
     PhotoManagementComponent,
     ModalBoxComponent,
+    AdminModalBoxComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { User } from 'src/app/_models/user';
 import { AdminService } from 'src/app/_services/admin/admin.service';
 import { ModalBoxComponent } from '../../shared/modal-box/modal-box.component';
+import { AdminModalBoxComponent } from '../admin-modal-box/admin-modal-box.component';
 
 @Component({
   selector: 'app-user-management',
@@ -11,8 +12,8 @@ import { ModalBoxComponent } from '../../shared/modal-box/modal-box.component';
 })
 export class UserManagementComponent implements OnInit {
   users: User[];
-  bsModalRef: BsModalRef<ModalBoxComponent> =
-    new BsModalRef<ModalBoxComponent>();
+  bsModalRef: BsModalRef<AdminModalBoxComponent> =
+    new BsModalRef<AdminModalBoxComponent>();
 
   constructor(
     private adminService: AdminService,
@@ -42,7 +43,10 @@ export class UserManagementComponent implements OnInit {
         // closeButtonName: 'Save', another way to dominstrait this
       },
     };
-    this.bsModalRef = this.modalService.show(ModalBoxComponent, modalConfig);
+    this.bsModalRef = this.modalService.show(
+      AdminModalBoxComponent,
+      modalConfig
+    );
     this.bsModalRef.content.closeButtonName = 'Save';
     this.bsModalRef.onHide.subscribe({
       next: (value) => {
